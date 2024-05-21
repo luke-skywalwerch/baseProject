@@ -14,12 +14,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.spring.reserves.model.Reserve;
 import com.spring.reserves.repository.MongoDbRepository;
 
+// annotation to define controller
 @Controller
 public class HomeController {
 
+    // annotation to inject the repository
     @Autowired
     private MongoDbRepository mongoRepo;
 
+    // this endpoint is accessible in http://localhost:8080/ and will return the
+    // html in templates/home.html
     @GetMapping("/")
     public String showHome(Model model) {
         List<Reserve> reserves = mongoRepo.findAll();
@@ -27,7 +31,8 @@ public class HomeController {
         return "home";
     }
 
-
+    // this endpoint is accessible in http://localhost:8080/add but does not return
+    // an html, it returns an http response that can be handled in client (js) if needed
     @PostMapping("/add")
     public ResponseEntity<Object> addReserve(@RequestBody Reserve reserve) {
         try {

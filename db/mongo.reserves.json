@@ -1,0 +1,26 @@
+[
+    {
+        "startDate": "12/12/12",
+        "endDate": "14/12/12",
+        "client": {
+            "name": "John",
+            "surname": "Frusciante"
+        }
+    },
+    {
+        "startDate": "12/12/20",
+        "endDate": "14/02/21",
+        "client": {
+            "name": "Corey",
+            "surname": "Taylor"
+        }
+    },
+    {
+        "startDate": "12/10/18",
+        "endDate": "22/12/18",
+        "client": {
+            "name": "Alicia",
+            "surname": "Keys"
+        }
+    }
+]
