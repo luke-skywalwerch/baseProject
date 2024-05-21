@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reserves</title>
+    <!-- import your styles from static folder -->
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+    <!-- import your js from static folder -->
+    <script th:src="@{/reserves.js}" defer></script>
+</head>
+
+<body>
+    <ul id="reservesList">
+        <li th:each="reserve : ${reserves}">
+            <div>
+                <p th:text="'Reserve from: ' + ${reserve.startDate} + ' to: ' + ${reserve.endDate}"></p>
+                <p th:text="'Client name: ' + ${reserve.client?.name} + ' ' + ${reserve.client?.surname}"></p>
+            </div>
+        </li>
+    </ul>
+    <form id="reserveForm">
+        <h1>Add Reserve Form</h1>
+        <div class="formContainer">
+            <div class="formColumn">
+                <div>
+                    <label for="startDate">Start Date (dd/mm/yyyy):</label>
+                    <input type="text" id="startDate" name="startDate">
+                </div>
+                <br>
+                <div>
+                    <label for="endDate">End Date (dd/mm/yyyy):</label>
+                    <input type="text" id="endDate" name="endDate">
+                </div>
+                <br>
+                <div>
+
+                    <label for="clientName">Client name:</label>
+                    <input type="text" id="clientName" name="clientName">
+                </div>
+                <br>
+                <div>
+                    <label for="clientSurname">Client surname:</label>
+                    <input type="text" id="clientSurname" name="clientSurname">
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+        <button type="submit" class="button" id="addReserveButton">Add Reserve</button>
+    </form>
+</body>
+
+</html>
